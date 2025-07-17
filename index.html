@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- OGPタグ -->
+    <meta property="og:title" content="ページのタイトル" />
+    <meta
+      property="og:description"
+      content="ページの概要や要点をここに書きます。"
+    />
+    <meta property="og:image" content="https://" />
+    <meta property="og:url" content="https://" />
+    <meta property="og:type" content="website" />
+    <!-- フォント -->
+    <link
+  href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500&display=swap"
+  rel="stylesheet"
+/>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <header class="header">
+      <div class="header__inner">
+        <h1 class="header__logo">
+          <a href=""><img src="./img/logo.png" alt="OHA!" /></a>
+        </h1>
+        <nav class="header__nav">
+          <a href="#about" class="header__link">サービスについて</a>
+          <a href="#merit" class="header__link">メリット</a>
+          <a href="#contact" class="header__button button">お問い合わせ</a>
+        </nav>
+
+        <button id="js-drawer-icon" class="header__open drawer-icon">
+          <span class="drawer-icon__bar"></span>
+          <span class="drawer-icon__bar"></span>
+          <span class="drawer-icon__bar"></span>
+        </button>
+      </div>
+    </header>
+    <div id="js-drawer-content" class="drawer-content">
+      <nav class="drawer-content__menu">
+        <a href="#about" class="drawer-content__link">サービスについて</a>
+        <a href="#merit" class="drawer-content__link">メリット</a>
+        <a href="#contact" class="drawer-content__link button">お問い合わせ</a>
+      </nav>
+    </div>
+
+    <section id="contact" class="contact">
+      <div class="contact__inner inner">
+        <div class="contact__box">
+          <div class="contact__title js-in-view fade-in-up">
+            <div class="heading">
+              <h2 class="heading--ja">かんたんお申し込みフォーム</h2>
+            </div>
+          </div>
+          <form class="contact__form" action="#" method="POST" enctype="multipart/form-data">
+            <div class="contact__fields">
+              <p class="contact__fields-box-title">お客様情報</p>
+                <div class="contact__fields-box">
+              <!-- 名前 -->
+              <div class="form__field">
+                <div class="form__field__head">
+                  <label for="your-name" class="form__field__label"
+                    >お名前</label
+                  >
+                  <span class="form__field__tag">必須</span>
+                </div>
+                <div class="form__field__item">
+                  <input
+                    class="form-text"
+                    type="text"
+                    name="your-name"
+                    id="your-name"
+                    placeholder="山田 太郎"
+                    required
+                  />
+                </div>
+              </div>
+
+              <!-- メール -->
+                <div class="form__field">
+                  <div class="form__field__head">
+                    <label for="your-email" class="form__field__label"
+                      >メールアドレス</label
+                    >
+                    <span class="form__field__tag">必須</span>
+                  </div>
+                  <div class="form__field__item">
+                    <input
+                      class="form-text"
+                      type="email"
+                      name="your-email"
+                      id="your-email"
+                      placeholder="example@mail.com"
+                      required
+                    />
+                  </div>
+                </div>
+
+              <!-- ラジオボタン -->
+                <div class="form__field">
+                  <div class="form__field__head">
+                    <div class="form__field__label">ご利用回数</div>
+                    <span class="form__field__tag">必須</span>
+                  </div>
+                  <div class="form__field__item">
+                    <div class="form-field__radios">
+                      <label class="form-field__radio form-radio">
+                        <input
+                          class="form-radio__input"
+                          type="radio"
+                          name="times"
+                          value="初回"
+                          required
+                        />
+                        <span class="form-radio__text">初回</span>
+                      </label>
+                      <label class="form-field__radio form-radio">
+                        <input
+                          class="form-radio__input"
+                          type="radio"
+                          name="times"
+                          value="２回目以降"
+                          required
+                        />
+                        <span class="form-radio__text">２回目以降</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+            </div>
+
+            <p class="contact__fields-box-title">ギフトカード情報</p>
+            <div id="card-fields-wrapper">
+                <div class="contact__fields-box card-box">
+                  
+              <div class="form__field">
+                <div class="form__field__head">
+                  <label for="card-name" class="form__field__label"
+                    >ギフトカード番号</label
+                  >
+                  <span class="form__field__tag">必須</span>
+                </div>
+                <div class="form__field__item">
+                  <input
+                    class="form-text"
+                    type="text"
+                    name="card-name"
+                    id="card-name"
+                    placeholder="ABCD-EFGH-IJKL-MNOP"
+                    required
+                  />
+                </div>
+              </div>
+                <div class="form__field">
+                  <div class="form__field__head">
+                    <label for="card-price" class="form__field__label"
+                      >ギフトカード額面金額</label
+                    >
+                    <span class="form__field__tag">必須</span>
+                  </div>
+                  <div class="form__field__item">
+                    <input
+                      class="form-text"
+                      type="number"
+                      name="card-price"
+                      id="card-price"
+                      placeholder="10,000（半角数字のみ）"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="form__field">
+                  <div class="form__field__head">
+                    <label for="purchase" class="form__field__label"
+                      >入手元</label
+                    >
+                    <span class="form__field__tag">必須</span>
+                  </div>
+                  <div class="form__field__item">
+                    <input
+                      class="form-text"
+                      type="text"
+                      name="purchase"
+                      id="purchase"
+                      placeholder="家電量販店、オンライン、贈答品など"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="form__field">
+                  <div class="form__field__head">
+                    <div class="form__field__label">購入証明</div>
+                    <span class="form__field__tag">必須</span>
+                  </div>
+                  <div class="form__field__item">
+                    <div class="form-field__radios">
+                      <label class="form-field__radio form-radio">
+                        <input
+                          class="form-radio__input"
+                          type="radio"
+                          name="receipt_select"
+                          value="あり"
+                          required
+                        />
+                        <span class="form-radio__text">あり</span>
+                      </label>
+                      <label class="form-field__radio form-radio">
+                        <input
+                          class="form-radio__input"
+                          type="radio"
+                          name="receipt_select"
+                          value="なし"
+                          required
+                        />
+                        <span class="form-radio__text">なし</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              <div class="form__field">
+                <div class="form__field__head">
+                  <label for="receipt-image" class="form__field__label">購入証明画像</label>
+                  <span class="form__field__tag">必須</span>
+                </div>
+              
+                <div class="image-upload-box" id="image-upload-box">
+                  <input
+                    type="file"
+                    id="receipt-image"
+                    name="purchaseImage"
+                    accept="image/*"
+                    hidden
+                    class="upload-input"
+                  />
+                  <div class="image-preview" id="image-preview">
+                    <p>写真を選択</p>
+                  </div>
+                  <button type="button" id="delete-image-btn" class="delete-btn">削除</button>
+            <small>※購入日時・店舗・金額が分かるレシートや明細などの画像を添付してください</small>
+                </div>
+              </div>
+              <template id="card-template">
+                  <div class="contact__fields-box card-box">
+                    <button type="button" class="card-remove-btn" aria-label="削除">&times;</button>
+                    <div class="form__field">
+                      <div class="form__field__head">
+                        <label for="card-name" class="form__field__label"
+                          >ギフトカード番号</label
+                        >
+                        <span class="form__field__tag">必須</span>
+                      </div>
+                      <div class="form__field__item">
+                        <input
+                          class="form-text"
+                          type="text"
+                          name="card-name"
+                          pattern="[A-Za-z0-9\-]+"
+                          placeholder="ABCD-EFGH-IJKL"
+                          required
+                        />
+                      </div>
+                    </div>
+                      <div class="form__field">
+                        <div class="form__field__head">
+                          <label for="card-price" class="form__field__label"
+                            >ギフトカード額面金額</label
+                          >
+                          <span class="form__field__tag">必須</span>
+                        </div>
+                        <div class="form__field__item">
+                          <input
+                            class="form-text"
+                            type="number"
+                            name="card-price"
+                            placeholder="10,000（半角数字のみ）"
+                            required
+                          />
+                        </div>
+                      </div>
+                      <div class="form__field">
+                        <div class="form__field__head">
+                          <label for="card-price" class="form__field__label"
+                            >入手元</label
+                          >
+                          <span class="form__field__tag">必須</span>
+                        </div>
+                        <div class="form__field__item">
+                          <input
+                            class="form-text"
+                            type="text"
+                            placeholder="家電量販店、オンライン、贈答品など"
+                            required
+                          />
+                        </div>
+                      </div>
+                      <div class="form__field">
+                        <div class="form__field__head">
+                          <div class="form__field__label">購入証明</div>
+                          <span class="form__field__tag">必須</span>
+                        </div>
+                        <div class="form__field__item">
+                          <div class="form-field__radios">
+                            <label class="form-field__radio form-radio">
+                              <input
+                                class="form-radio__input"
+                                type="radio"
+                                name="receipt_select"
+                                value="あり"
+                                required
+                              />
+                              <span class="form-radio__text">あり</span>
+                            </label>
+                            <label class="form-field__radio form-radio">
+                              <input
+                                class="form-radio__input"
+                                type="radio"
+                                name="receipt_select"
+                                value="なし"
+                                required
+                              />
+                              <span class="form-radio__text">なし</span>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    <div class="form__field">
+                      <div class="form__field__head">
+                        <label for="receipt-image" class="form__field__label">購入証明画像</label>
+                        <span class="form__field__tag">必須</span>
+                      </div>
+                    
+                      <div class="image-upload-box">
+                        <input
+                          type="file"
+                          name="purchaseImage"
+                          accept="image/*"
+                          hidden
+                          class="upload-input"
+                        />
+                        <div class="image-preview">
+                          <p>写真を選択</p>
+                        </div>
+                        <button type="button" class="delete-btn">削除</button>
+                        <small>※購入日時・店舗・金額が分かるレシートや明細などの画像を添付してください</small>
+                      </div>
+                </div>
+                  </div>
+
+              </template>
+            </div>
+                </div>
+              <button class="addition-button" type="button" id="card-addition" >＋ギフトカードを追加する</button>
+
+              <div class="contact__scheduled-amount">
+                <div class="contact__scheduled-amount-inner">
+                  <p>
+                    現在の振り込み予定金額<br/>
+                    <span id="result" class="contact__scheduled-amount-value"></span>
+                    <span class="contact__scheduled-amount-tax">(税込)</span>
+                  </p>
+                  <small>
+                    ※入力内容に応じて自動計算されます<br/>
+                    ※最終金額は審査後に確定します。
+                  </small>
+                </div>
+              </div>
+
+              <p class="contact__fields-box-title">振込先情報</p>
+                <div class="contact__fields-box">
+              <div class="form__field">
+                <div class="form__field__head">
+                  <label for="bank-name" class="form__field__label"
+                    >銀行名</label
+                  >
+                  <span class="form__field__tag">必須</span>
+                </div>
+                <div class="form__field__item">
+                  <input
+                    class="form-text"
+                    type="text"
+                    name="bank-name"
+                    id="bank-name"
+                    placeholder="三井住友銀行"
+                    required
+                  />
+                </div>
+              </div>
+                <div class="form__field">
+                  <div class="form__field__head">
+                    <label for="branch-name" class="form__field__label"
+                      >支店名</label
+                    >
+                    <span class="form__field__tag">必須</span>
+                  </div>
+                  <div class="form__field__item">
+                    <input
+                      class="form-text"
+                      type="text"
+                      name="branch-name"
+                      id="branch-name"
+                      placeholder="渋谷支店"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="form__field">
+                  <div class="form__field__head">
+                    <label for="account-num" class="form__field__label"
+                      >口座番号</label
+                    >
+                    <span class="form__field__tag">必須</span>
+                  </div>
+                  <div class="form__field__item">
+                    <input
+                    class="form-text"
+                    type="number"
+                    name="account-num"
+                    id="account-num"
+                    placeholder="1234567（半角7桁入力してください）"
+                    pattern="\d{7}"
+                    inputmode="numeric"
+                    maxlength="7"
+                    required
+                    oninvalid="this.setCustomValidity('口座番号は7桁の半角数字で入力してください')"
+                    oninput="this.setCustomValidity('')"
+                  />
+                  </div>
+                </div>
+                <div class="form__field">
+                  <div class="form__field__head">
+                    <label for="account-name" class="form__field__label"
+                      >口座名（カナ）</label
+                    >
+                    <span class="form__field__tag">必須</span>
+                  </div>
+                  <div class="form__field__item">
+                    <input
+                      class="form-text"
+                      type="text"
+                      name="account-name"
+                      id="account-name"
+                      placeholder="ヤマダ タロウ"
+                      required
+                    />
+                  </div>
+                </div>
+
+              <!-- ラジオボタン -->
+                <div class="form__field">
+                  <div class="form__field__head">
+                    <div class="form__field__label">口座種別</div>
+                    <span class="form__field__tag">必須</span>
+                  </div>
+                  <div class="form__field__item">
+                    <div class="form-field__radios">
+                      <label class="form-field__radio form-radio">
+                        <input
+                          class="form-radio__input"
+                          type="radio"
+                          name="account-type"
+                          value="普通口座"
+                          required
+                        />
+                        <span class="form-radio__text">普通口座</span>
+                      </label>
+                      <label class="form-field__radio form-radio">
+                        <input
+                          class="form-radio__input"
+                          type="radio"
+                          name="account-type"
+                          value="当座口座"
+                          required
+                        />
+                        <span class="form-radio__text">当座口座</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+            </div>
+
+            <p class="contact__fields-box-title">本人確認書類のアップロード（初回のみ）</p>
+            <div class="contact__fields-box">
+              <div class="form__field">
+             <!-- ラジオボタン -->
+             <div class="form__field">
+              <div class="form__field__item">
+                <div class="form-field__radios2">
+                  <label class="form-field__radio form-radio">
+                    <input
+                      class="form-radio__input"
+                      type="radio"
+                      name="id-type"
+                      value="運転免許証"
+                      required
+                    />
+                    <span class="form-radio__text">運転免許証</span>
+                  </label>
+                  <label class="form-field__radio form-radio">
+                    <input
+                      class="form-radio__input"
+                      type="radio"
+                      name="id-type"
+                      value="パスポート"
+                      required
+                    />
+                    <span class="form-radio__text">パスポート</span>
+                  </label>
+                  <label class="form-field__radio form-radio">
+                    <input
+                      class="form-radio__input"
+                      type="radio"
+                      name="id-type"
+                      value="マイナンバーカード"
+                      required
+                    />
+                    <span class="form-radio__text">マイナンバーカード</span>
+                  </label>
+                  <label class="form-field__radio form-radio">
+                    <input
+                      class="form-radio__input"
+                      type="radio"
+                      name="id-type"
+                      value="その他"
+                      required
+                    />
+                    <span class="form-radio__text">その他</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+              </div>
+              <div class="form__field">
+                <div class="form__field__head">
+                  <label for="receipt-image" class="form__field__label">表面の画像</label>
+                  <span class="form__field__tag">必須</span>
+                </div>
+              
+                <div class="image-upload-box">
+                  <input
+                    type="file"
+                    name="frontImage"
+                    accept="image/*"
+                    hidden
+                    class="upload-input"
+                  />
+                  <div class="image-preview">
+                    <p>写真を選択</p>
+                  </div>
+                  <button type="button" class="delete-btn">削除</button>
+                </div>
+        </div>
+          <div class="form__field">
+            <div class="form__field__head">
+              <label for="receipt-image" class="form__field__label">裏面の画像</label>
+              <span class="form__field__tag">任意</span>
+            </div>
+          
+            <div class="image-upload-box">
+              <input
+                type="file"
+                name="backImage"
+                accept="image/*"
+                hidden
+                class="upload-input"
+              />
+              <div class="image-preview">
+                <p>写真を選択</p>
+              </div>
+              <button type="button" class="delete-btn">削除</button>
+            </div>
+      </div>
+      <div id="id-fields-wrapper"></div>
+      <template id="id-template">
+        <div class="form__field">
+          <div class="form__field__head">
+            <label for="receipt-image" class="form__field__label">追加画像</label>
+            <span class="form__field__tag">任意</span>
+          </div>
+        
+          <div class="image-upload-box">
+            <input
+              type="file"
+              name="additionalImage"
+              accept="image/*"
+              hidden
+              class="upload-input"
+            />
+            <div class="image-preview">
+              <p>写真を選択</p>
+            </div>
+            <button type="button" class="delete-btn">削除</button>
+          <button type="button" class="id-remove-btn" aria-label="削除">&times;</button>
+          </div>
+
+    </div>
+      </template>
+      <button class="addition-button" type="button" id="id-addition" >+別の本人確認書類を追加する（任意）</button>
+      <small>※ 表面のみで確認できる書類（免許証・マイナンバーカード等）は「表面のみ」のアップロードでOKです。<br/>
+        ※ 複数の書類を提出する場合は「別の本人確認書類を追加」をご利用ください。</small>
+        </div>
+
+
+              <!-- チェックボックス -->
+              <div class="contact__privacy">
+                <label class="form-checkbox">
+                  <input
+                    type="checkbox"
+                    name="privacy"
+                    class="form-checkbox__input"
+                    required
+                  />
+                  <span class="form-checkbox__input__text">
+                    規約に同意し、遵守することを誓約します
+                  </span>
+                </label>
+              </div>
+
+              <!-- 送信ボタン -->
+              <div class="contact__button">
+                <button type="submit" class="button">申し込み内容の確認</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="footer__inner inner">
+        <nav class="footer__nav">
+          <a href="#about" class="header__link">サービスについて</a>
+          <a href="#merit" class="header__link">メリット</a>
+          <a href="#contact" class="header__button button">お問い合わせ</a>
+        </nav>
+        <small class="footer__copyright">コピーライト</small>
+      </div>
+    </footer>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="./js/script.js"></script>
+  </body>
+</html>
