@@ -1,6 +1,6 @@
 # malt. design LP
 
-PCを中心に制作した、FV → INTRO / EMPATHY → CHANGE → WORKS → STORY の静的LPです。SPは基本的な可変幅・積み替えに対応しています。フロントエンドは外部ライブラリ・外部フォント・通信に依存しません。
+PCを中心に制作した、FV → INTRO / EMPATHY → CHANGE → WORKS → STORY → WHAT I DO → SERVICE → FLOW → PRICE → ABOUT → CTA の静的LPです。SPは基本的な可変幅・積み替えに対応しています。フロントエンドは外部ライブラリ・外部フォント・通信に依存しません。
 
 ## ダウンロードして表示確認する
 
@@ -43,7 +43,8 @@ scss/
 ├── object/
 │   ├── component/            # button / heading / inner
 │   ├── project/              # top-fv / top-intro / top-change / top-works
-│   │                         # top-story / consultation
+│   │                         # top-story / top-what-i-do / top-service / top-flow
+│   │                         # top-price / top-about / top-cta / consultation
 │   └── utility/              # display（必要なものだけ）
 └── style.scss                # @use の読み込み入口
 js/
@@ -85,13 +86,20 @@ BEMの `block__element` / `block--modifier` を使用。IDはアンカーや見�
 
 相談先は未提供なので、現在の「相談する」は準備中の案内ダイアログを開きます。公開前に実際のフォーム／メール／予約先が決まったら、`data-consultation` のボタンをリンクへ変更し、ダイアログと `consultation.js`、対応SCSSを取り除きます。既存サイトの外部送信処理はこのLPでは使用していません。
 
-## SERVICE以降を追加するルール
+## 続きのセクションと更新ルール
 
-1. `<main>` 内のSTORYの後に、見出しを持つsemanticな `<section class="p-top-service">` 等を追加。
-2. `scss/object/project/_top-service.scss`（flow / price / about / ctaも同様）を追加し、`style.scss` で `@use`。
-3. 色・間隔は既存トークン、幅・見出し・ボタンは既存Componentを利用。複数箇所で必要になったUIだけComponentへ移す。
-4. JSが必要なら役割別モジュールを追加し `main.js` で初期化。インラインJS、IDに依存したスタイル、汎用的すぎるProjectクラスは避ける。
-5. `npm run build` 後、セクションが増えた分だけテストの期待構成を更新し、`npm test` で確認。
+ユーザーから受け取った続きの原稿に沿って、以下を追加しています。既存5セクションの見出し・本文は変更していません。小さな章番号は今回の01〜11構成に合わせ、FVの「制作について見る」は新しいSERVICEへ移動します。
+
+- `p-top-what-i-do`: Listen.／Find.／Design. の3ステップ。
+- `p-top-service`: お客様の疑問と、それぞれに合ったWebサイトを一緒に考える本文。専門用語を前面に出しません。
+- `p-top-flow`: 相談 → ヒアリング → ご提案・お見積り → デザイン → 制作 → 公開 → 必要に応じて運用サポート。`ol` の1項目単位で管理。
+- `p-top-price`: 金額は未確定のため「準備中」。公開前に料金の目安・条件を確定して、このセクション内に入力してください。仮の金額、税区分、提供プランは作っていません。
+- `p-top-about`: Web Designer／こいた ゆな／岡山、パン屋で9年間働いた経歴とmalt. designの名前の由来。写真はプレースホルダー。
+- `p-top-cta`: いただいた相談への問いかけ。相談先URLが未提供のため、「相談してみる」は既存の準備中案内ダイアログを開きます。無料相談・無理な営業をしない等の未確定な条件は記載していません。
+
+本文は候補として提示された原稿を使用しています。FLOW・PRICE・ABOUTの見出しは内容を示す中立的なラベルにしています。原稿の差し替えは対象のsection内だけで行い、他セクションを変更しないでください。新しい本文を独断で追加・要約しないでください。
+
+追加・改修では、各Project専用のSCSSファイル、既存デザイントークン、共通Componentを利用してください。複数箇所で必要になったUIだけComponentへ移します。JSが必要なら役割別モジュールを追加して `main.js` で初期化し、インラインJSとIDに依存したスタイルを避けます。変更後は `npm run build` でCSSと直接開くためのpreviewを再生成し、`npm test` を実行してください。
 
 ## WordPress化で切り出す箇所
 

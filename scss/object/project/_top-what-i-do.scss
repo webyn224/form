@@ -1,0 +1,71 @@
+@use "../../foundation/mixin" as m;
+.p-top-what-i-do {
+  padding-block: var(--space-section);
+  background: var(--color-surface);
+}
+.p-top-what-i-do__heading {
+  position: relative;
+}
+.p-top-what-i-do__list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4%;
+  list-style: none;
+  margin-top: 4rem;
+}
+.p-top-what-i-do__item {
+  position: relative;
+  padding-top: 3.5rem;
+  min-width: 0;
+  h3 {
+    font-family: var(--font-serif);
+    font-size: 1.15rem;
+    font-weight: 400;
+    line-height: 1.8;
+    margin-block: 1rem 1.5rem;
+    span {
+      display: block;
+      font-family: var(--font-latin);
+      font-size: 1.75rem;
+      font-weight: 300;
+      letter-spacing: -0.02em;
+    }
+  }
+  > p:last-child {
+    font-size: 0.8125rem;
+    line-height: 2.3;
+  }
+}
+.p-top-what-i-do__number {
+  font-family: var(--font-latin);
+  font-size: 0.6875rem;
+  color: var(--color-accent-ink);
+  border-top: 1px solid var(--color-line);
+  padding-top: 1.25rem;
+}
+.p-top-what-i-do__seed {
+  position: absolute;
+  top: 0;
+  left: 3px;
+  width: 15px;
+  height: 31px;
+  border-radius: 50%;
+  transform: rotate(25deg);
+  background: linear-gradient(
+    var(--color-accent-peach),
+    var(--color-accent-pink),
+    var(--color-accent-lavender)
+  );
+}
+@include m.small {
+  .p-top-what-i-do__list {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    margin-top: 3rem;
+  }
+  .p-top-what-i-do__item {
+    > p:last-child {
+      font-size: 0.875rem;
+    }
+  }
+}

@@ -1,0 +1,34 @@
+@use "../../foundation/mixin" as m;
+.p-top-cta {
+  padding-block: var(--space-section);
+  background: linear-gradient(
+    135deg,
+    var(--color-accent-peach),
+    var(--color-accent-pink) 45%,
+    var(--color-accent-lavender)
+  );
+}
+.p-top-cta__inner {
+  max-width: 42rem;
+}
+.p-top-cta__text {
+  font-size: 0.875rem;
+  line-height: 2.5;
+  margin-top: 2.5rem;
+  p + p {
+    margin-top: 1.5rem;
+  }
+}
+.p-top-cta .c-button {
+  margin-top: 2.5rem;
+}
+.p-top-cta__notice {
+  font-size: 0.6875rem;
+  color: var(--color-text);
+  margin-top: 1rem;
+}
+@include m.small {
+  .p-top-cta__text {
+    font-size: 0.8125rem;
+  }
+}

@@ -60,12 +60,52 @@ server.on("error", (error) => (serverError += error.message));
       await page
         .locator("main > section")
         .evaluateAll((elements) => elements.map((element) => element.id)),
-      ["top", "intro", "change", "works", "story"],
+      [
+        "top",
+        "intro",
+        "change",
+        "works",
+        "story",
+        "what-i-do",
+        "service",
+        "flow",
+        "price",
+        "about",
+        "consultation",
+      ],
     );
     assert.equal(await page.locator("h1").count(), 1);
     assert.equal(await page.locator(".p-top-works-card").count(), 4);
     assert.equal(await page.locator(".p-top-change__item").count(), 4);
     assert.equal(await page.locator(".p-top-story__photo").count(), 3);
+    assert.deepEqual(
+      await page.locator(".p-top-what-i-do__item h3").allTextContents(),
+      ["Listen.聞く。", "Find.見つける。", "Design.伝える。"],
+    );
+    assert.deepEqual(
+      await page.locator(".p-top-flow__item h3").allTextContents(),
+      [
+        "相談",
+        "ヒアリング",
+        "ご提案・お見積り",
+        "デザイン",
+        "制作",
+        "公開",
+        "必要に応じて運用サポート",
+      ],
+    );
+    assert.equal(
+      (await page.locator(".p-top-price__value").innerText()).trim(),
+      "準備中",
+    );
+    assert.equal(
+      (await page.locator(".p-top-about__name").innerText()).trim(),
+      "こいた ゆな",
+    );
+    assert.equal(
+      await page.locator(".p-top-cta [data-consultation]").count(),
+      1,
+    );
     assert.equal(
       await page
         .locator('a[href^="#"]')

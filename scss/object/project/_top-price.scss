@@ -1,0 +1,39 @@
+@use "../../foundation/mixin" as m;
+.p-top-price {
+  padding-block: var(--space-section);
+}
+.p-top-price__inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10%;
+  align-items: center;
+}
+.p-top-price__heading {
+  position: relative;
+}
+.p-top-price__content {
+  padding-block: 2.5rem;
+  border-top: 1px solid var(--color-line);
+  border-bottom: 1px solid var(--color-line);
+}
+.p-top-price__label {
+  font-size: 0.75rem;
+  color: var(--color-muted);
+}
+.p-top-price__value {
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  letter-spacing: 0.15em;
+  margin-top: 1rem;
+}
+.p-top-price__notice {
+  font-size: 0.75rem;
+  color: var(--color-muted);
+  margin-top: 1.5rem;
+}
+@include m.small {
+  .p-top-price__inner {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+}

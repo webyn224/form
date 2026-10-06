@@ -1,0 +1,71 @@
+@use "../../foundation/mixin" as m;
+.p-top-flow {
+  padding-block: var(--space-section);
+  background: var(--color-surface);
+}
+.p-top-flow__inner {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 10%;
+  align-items: start;
+}
+.p-top-flow__heading {
+  position: sticky;
+  top: 4rem;
+}
+.p-top-flow__list {
+  list-style: none;
+}
+.p-top-flow__item {
+  display: grid;
+  grid-template-columns: 3rem 1fr;
+  gap: 1rem;
+  align-items: center;
+  padding: 1.9rem 0;
+  border-top: 1px solid var(--color-line);
+  position: relative;
+  h3 {
+    font-family: var(--font-serif);
+    font-size: 1.2rem;
+    font-weight: 400;
+    letter-spacing: 0.06em;
+    line-height: 1.8;
+  }
+  &:not(:last-child)::after {
+    content: "↓";
+    position: absolute;
+    bottom: -0.7rem;
+    left: 4rem;
+    color: var(--color-accent-ink);
+    font-size: 0.875rem;
+    background: var(--color-surface);
+    width: 1.5rem;
+    text-align: center;
+  }
+  &:last-child {
+    border-bottom: 1px solid var(--color-line);
+  }
+}
+.p-top-flow__number {
+  font-family: var(--font-latin);
+  font-size: 0.8125rem;
+  color: var(--color-accent-ink);
+}
+.p-top-flow__item--optional h3 {
+  font-size: 1.05rem;
+}
+@include m.small {
+  .p-top-flow__inner {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  .p-top-flow__heading {
+    position: static;
+  }
+  .p-top-flow__item {
+    padding-block: 1.6rem;
+    h3 {
+      font-size: 1.1rem;
+    }
+  }
+}

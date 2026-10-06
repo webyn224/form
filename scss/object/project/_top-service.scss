@@ -1,0 +1,56 @@
+@use "../../foundation/mixin" as m;
+.p-top-service {
+  padding-block: var(--space-section);
+}
+.p-top-service__heading {
+  position: relative;
+}
+.p-top-service__body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10%;
+  align-items: start;
+  margin-top: 4rem;
+}
+.p-top-service__questions {
+  position: relative;
+  font-family: var(--font-serif);
+  font-size: clamp(1rem, 1.5vw, 1.25rem);
+  line-height: 2.2;
+  p + p {
+    margin-top: 1.5rem;
+  }
+}
+.p-top-service__text {
+  font-size: 0.875rem;
+  line-height: 2.5;
+  p + p {
+    margin-top: 1.5rem;
+  }
+}
+.p-top-service__seed {
+  display: block;
+  margin-top: 4rem;
+  width: 25px;
+  height: 52px;
+  border-radius: 50%;
+  transform: rotate(25deg);
+  background: linear-gradient(
+    var(--color-accent-peach),
+    var(--color-accent-pink),
+    var(--color-accent-lavender)
+  );
+}
+@include m.small {
+  .p-top-service__body {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    margin-top: 3rem;
+  }
+  .p-top-service__seed {
+    margin-top: 2rem;
+  }
+  .p-top-service__questions {
+    font-size: 1rem;
+  }
+}
