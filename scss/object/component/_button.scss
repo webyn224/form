@@ -1,5 +1,62 @@
 @use "../../foundation/mixin" as m;
-.c-button { display: inline-flex; align-items: center; justify-content: space-between; gap: 2.5rem; border: 1px solid var(--color-text); border-radius: 100px; padding: .9rem 1.7rem; font-size: .8125rem; line-height: 1.5; transition: background .25s, color .25s; span { font-size: 1.2rem; } &:hover { background: var(--color-text); color: var(--color-bg); } }
-.c-button--small { padding: .7rem 1.3rem; gap: 1.8rem; font-size: .75rem; }
-.c-text-link { display: inline-flex; align-items: center; gap: 1.5rem; padding: .6rem 0; border-bottom: 1px solid var(--color-line); font-size: .8125rem; line-height: 1.5; transition: border-color .25s; &:hover { border-color: var(--color-text); } }
-.c-skip-link { position: fixed; z-index: 10; top: 1rem; left: 1rem; padding: .5rem 1rem; background: var(--color-bg); transform: translateY(-200%); &:focus { transform: translateY(0); } }
+.c-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  border: 1px solid var(--color-line);
+  border-radius: 100px;
+  padding: 0.8rem 1.5rem;
+  font-size: 0.75rem;
+  line-height: 1.5;
+  transition:
+    background 0.25s,
+    color 0.25s;
+  span {
+    font-size: 1.2rem;
+  }
+  &:hover {
+    background: var(--color-text);
+    color: var(--color-bg);
+  }
+}
+.c-button--small {
+  padding: 0.5rem 1rem;
+  gap: 1rem;
+  font-size: 0.625rem;
+}
+.c-button--filled {
+  background: var(--color-text);
+  color: var(--color-white);
+  border-color: var(--color-text);
+  &:hover {
+    background: var(--color-accent-ink);
+    color: var(--color-white);
+    border-color: var(--color-accent-ink);
+  }
+}
+.c-text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid var(--color-line);
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  transition: border-color 0.25s;
+  &:hover {
+    border-color: var(--color-text);
+  }
+}
+.c-skip-link {
+  position: fixed;
+  z-index: 10;
+  top: 1rem;
+  left: 1rem;
+  padding: 0.5rem 1rem;
+  background: var(--color-bg);
+  transform: translateY(-200%);
+  &:focus {
+    transform: translateY(0);
+  }
+}

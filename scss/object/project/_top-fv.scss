@@ -1,26 +1,189 @@
 @use "../../foundation/mixin" as m;
-.p-top-fv { position: relative; min-height: 790px; min-height: min(900px, calc(100svh - 108px)); padding-top: clamp(3.5rem, 6.7vw, 7rem); padding-bottom: 7rem; display: flex; flex-direction: column; justify-content: center; }
-.p-top-fv__inner { position: relative; z-index: 1; }
-.p-top-fv__eyebrow { @include m.latin; margin-bottom: 2.5rem; }
-.p-top-fv__title { font-family: var(--font-serif); font-size: clamp(2.1rem, 4.05vw, 4rem); line-height: 1.7; font-weight: 400; letter-spacing: .03em; span { color: var(--color-accent-ink); } }
-.p-top-fv__body { font-size: .8125rem; line-height: 2.2; margin-top: 2.25rem; p + p { margin-top: 1rem; } }
-.p-top-fv__question { font-size: .9375rem; letter-spacing: .03em; }
-.p-top-fv__actions { display: flex; align-items: center; gap: 2.25rem; margin-top: 2rem; }
-.p-top-fv__art { position: absolute; width: 54%; height: 90%; top: -2%; right: -9%; pointer-events: none; }
-.p-top-fv__orb { position: absolute; inset: 0; border-radius: 47% 53% 54% 46% / 50% 40% 60% 50%; background: radial-gradient(ellipse at 63% 30%, color-mix(in srgb, var(--color-accent-lavender) 77%, transparent) 0, color-mix(in srgb, var(--color-accent-pink) 64%, transparent) 32%, color-mix(in srgb, var(--color-accent-peach) 66%, transparent) 51%, transparent 73%); filter: blur(24px); animation: breathe 16s ease-in-out infinite alternate; }
-.p-top-fv__orbit { position: absolute; width: 72%; aspect-ratio: 1; top: 12%; left: 6%; border: 1px solid color-mix(in srgb, var(--color-accent-ink) 15%, transparent); border-radius: 50%; transform: rotate(-30deg) scaleX(.68); }
-.p-top-fv__art-caption { position: absolute; top: 61%; left: 35%; font-family: var(--font-serif); font-style: italic; font-size: .875rem; color: var(--color-accent-ink); letter-spacing: .04em; transform: rotate(-8deg); }
-.p-top-fv__bottom { position: absolute; left: 0; right: 0; bottom: 2rem; display: flex; align-items: center; justify-content: space-between; @include m.latin; letter-spacing: .08em; p { font-size: .6875rem; } p span { margin-left: 1.5rem; color: var(--color-muted); } a { display: flex; align-items: center; gap: 1.5rem; } a span { font-size: 1.3rem; } }
-@keyframes breathe { from { transform: translate(0, 0) rotate(-5deg); } to { transform: translate(-3%, 3%) rotate(8deg); } }
-@media (prefers-reduced-motion: reduce) { .p-top-fv__orb { animation: none; } }
+.p-top-fv {
+  position: relative;
+  min-height: 620px;
+  padding-top: clamp(3rem, 6vw, 6rem);
+  padding-bottom: 6rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+}
+.p-top-fv__inner {
+  position: relative;
+  z-index: 1;
+}
+.p-top-fv__eyebrow {
+  @include m.latin;
+  color: var(--color-muted);
+  font-size: 0.5625rem;
+  margin-bottom: 1.8rem;
+  letter-spacing: 0.22em;
+}
+.p-top-fv__title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.7rem, 2.75vw, 2.65rem);
+  line-height: 1.95;
+  font-weight: 400;
+  letter-spacing: 0.13em;
+}
+.p-top-fv__highlight {
+  background: linear-gradient(
+    transparent 74%,
+    var(--color-marker) 74%,
+    var(--color-marker) 88%,
+    transparent 88%
+  );
+}
+.p-top-fv__body {
+  font-size: 0.75rem;
+  line-height: 2.1;
+  margin-top: 1.5rem;
+  p + p {
+    margin-top: 0.65rem;
+  }
+}
+.p-top-fv__question {
+  font-size: 0.8125rem;
+  letter-spacing: 0.03em;
+}
+.p-top-fv__actions {
+  display: flex;
+  align-items: center;
+  gap: 1.75rem;
+  margin-top: 1.5rem;
+}
+.p-top-fv__art {
+  position: absolute;
+  width: 65%;
+  height: 125%;
+  top: -15%;
+  right: -13%;
+  pointer-events: none;
+}
+.p-top-fv__orb {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(
+      ellipse at 57% 33%,
+      color-mix(in srgb, var(--color-accent-peach) 78%, transparent),
+      transparent 37%
+    ),
+    radial-gradient(
+      ellipse at 72% 45%,
+      color-mix(in srgb, var(--color-accent-pink) 80%, transparent),
+      transparent 42%
+    ),
+    radial-gradient(
+      ellipse at 57% 67%,
+      color-mix(in srgb, var(--color-accent-lavender) 95%, transparent),
+      transparent 44%
+    );
+  filter: blur(28px);
+  animation: breathe 16s ease-in-out infinite alternate;
+}
+.p-top-fv__art-caption {
+  position: absolute;
+  right: 24%;
+  top: 12%;
+  font-family: var(--font-latin);
+  font-size: 0.5rem;
+  letter-spacing: 0.15em;
+  color: var(--color-muted);
+  writing-mode: vertical-rl;
+}
+.p-top-fv__bottom {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  @include m.latin;
+  letter-spacing: 0.08em;
+  p {
+    font-size: 0.5625rem;
+  }
+  p span {
+    margin-left: 1.5rem;
+    color: var(--color-muted);
+  }
+  a {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  a span {
+    font-size: 1rem;
+  }
+}
+@keyframes breathe {
+  from {
+    transform: translate(0, 0) rotate(-5deg);
+  }
+  to {
+    transform: translate(-3%, 3%) rotate(8deg);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .p-top-fv__orb {
+    animation: none;
+  }
+}
 @include m.small {
- .p-top-fv { min-height: auto; padding-top: 4rem; padding-bottom: 7.5rem; }
- .p-top-fv__title { font-size: clamp(1.6rem, 5.1vw, 2.5rem); line-height: 1.9; letter-spacing: 0; }
- .p-top-fv__eyebrow { font-size: .5rem; margin-bottom: 2rem; }
- .p-top-fv__art { width: 95%; height: 65%; top: -7%; right: -38%; opacity: .7; }
- .p-top-fv__art-caption { display: none; }
- .p-top-fv__body { font-size: .75rem; br { display: initial; } }
- .p-top-fv__question { font-size: .8125rem; }
- .p-top-fv__actions { gap: 1.25rem; .c-button { padding: .9rem 1.15rem; gap: 1.5rem; } }
- .p-top-fv__bottom { font-size: .45rem; p span { display: block; margin-left: 0; margin-top: .25rem; } a { gap: .5rem; } }
+  .p-top-fv {
+    min-height: 700px;
+    padding-top: 5rem;
+    padding-bottom: 7rem;
+  }
+  .p-top-fv__title {
+    font-size: clamp(1.1rem, 4.4vw, 1.7rem);
+    line-height: 2.1;
+    letter-spacing: 0.07em;
+  }
+  .p-top-fv__eyebrow {
+    font-size: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+  .p-top-fv__art {
+    width: 140%;
+    height: 77%;
+    top: -9%;
+    right: -50%;
+    opacity: 0.8;
+  }
+  .p-top-fv__art-caption {
+    display: none;
+  }
+  .p-top-fv__body {
+    margin-top: 2rem;
+    font-size: 0.75rem;
+  }
+  .p-top-fv__question {
+    font-size: 0.75rem;
+  }
+  .p-top-fv__actions {
+    align-items: start;
+    gap: 1rem;
+    .c-button {
+      padding: 0.85rem 1rem;
+      gap: 1rem;
+    }
+    .c-text-link {
+      font-size: 0.75rem;
+      gap: 0.8rem;
+    }
+  }
+  .p-top-fv__bottom {
+    font-size: 0.45rem;
+    p span {
+      display: block;
+      margin-left: 0;
+      margin-top: 0.25rem;
+    }
+    a {
+      gap: 0.5rem;
+    }
+  }
 }

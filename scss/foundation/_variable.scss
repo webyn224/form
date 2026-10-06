@@ -1,15 +1,19 @@
 $breakpoint-small: 48rem;
 :root {
-  --color-text: #34332f;
-  --color-muted: #6e6b65;
-  --color-bg: #f8f7f4;
-  --color-surface: #f0efeb;
-  --color-line: #d9d7d0;
-  --color-accent-pink: #f0d9de;
-  --color-accent-lavender: #dcd7ed;
-  --color-accent-peach: #f0d9c8;
-  --color-accent-ink: #796486;
-  --color-story-bg: #f0eeea;
+  --color-text: #383b4c;
+  --color-muted: #656778;
+  --color-bg: #f8f9fb;
+  --color-surface: #eff0f8;
+  --color-line: #dadde7;
+  --color-accent-pink: #f3d7df;
+  --color-accent-lavender: #d5d9f0;
+  --color-accent-peach: #f5d7c9;
+  --color-accent-ink: #6d6e9d;
+  --color-white: #ffffff;
+  --color-display: #dce0f0;
+  --color-marker: #f2c9be;
+  --color-shadow: #4c52721a;
+  --color-story-bg: #eff0f8;
   --color-work-hair-bg: #ded9d0;
   --color-work-hair-text: #62594d;
   --color-work-care-bg: #dce2db;
@@ -24,11 +28,12 @@ $breakpoint-small: 48rem;
   --color-photo-walk-text: #536257;
   --color-photo-note-bg: #e3d9d4;
   --color-photo-note-text: #74594f;
-  --font-body: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, sans-serif;
+  --font-body:
+    "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, sans-serif;
   --font-serif: "Noto Serif JP", "Yu Mincho", "Hiragino Mincho ProN", serif;
   --font-latin: "Helvetica Neue", Arial, sans-serif;
-  --space-section: clamp(6rem, 10vw, 10rem);
+  --space-section: clamp(5rem, 8vw, 8rem);
   --space-paragraph: 2rem;
-  --page-gutter: clamp(1.5rem, 5.4vw, 6rem);
-  --content-width: 76rem;
+  --page-gutter: clamp(1.5rem, 9vw, 9rem);
+  --content-width: 64rem;
 }

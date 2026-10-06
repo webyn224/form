@@ -28,7 +28,9 @@ npm test
 
 ## デザインの狙い
 
-温かい白と墨色のタイポグラフィを主役に、FVにはラベンダーとピーチの淡い光を添えています。本人写真やパンの直接的な装飾は使わず、余白と文章から人柄を伝える設計です。INTROは悩みから返答へ自然に読む構成、CHANGEは区切り線のある連続した文章、WORKSは大小・上下のずれがある編集的な2列構成。STORYは3つの写真プレースホルダー、中央の転換点、締めの文章で読むリズムをつくっています。
+いただいた参考画像に合わせ、白に近い背景と青みの墨色、ピーチからラベンダーへにじむ光、小さめの余白のあるタイポグラフィへ調整しました。FVは左側にコンパクトにまとめ、ダークなCTAと薄いピーチの下線をアクセントに。INTROは中央の文章 → 淡いラベンダーのThoughts → 想いを聞く文章という流れです。Thoughtsの言葉は少し位置をずらして浮かべ、小さな粒がスクロールとともに集まります。CHANGEはピーチ〜ラベンダーの背景に2列の連続した文章を配置。WORKSはご希望に沿って、当初の大小・上下のずれがある2列構成を維持しています。STORYは淡い背景と写真プレースホルダーで長文の呼吸をつくります。
+
+大きな薄い英字は装飾用SVGテキスト（`aria-hidden`）です。内容は別の日本語見出しで伝え、本文・操作UIは必要なコントラストを確保しています。ノイズはローカルの `images/noise.svg` による薄い装飾で、外部通信はありません。
 
 ## ディレクトリとFLOCSS
 
@@ -48,6 +50,8 @@ js/
 ├── main.js                   # 初期化のみ
 └── modules/                  # fade / particle / consultation
 tests/smoke.cjs              # ブラウザ検証
+scripts/build-preview.mjs    # 直接開けるpreviewの生成
+images/noise.svg             # 背景用の微細なテクスチャ
 ```
 
 - **Foundation**: CSS変数を `_variable.scss` に集約。色・フォント・余白・コンテンツ幅をここで変更。ブレイクポイントは同ファイルのSCSS変数。`_mixin.scss` にレスポンシブ・欧文ラベルの共通処理、`_function.scss` に単位換算。
@@ -60,14 +64,20 @@ BEMの `block__element` / `block--modifier` を使用。IDはアンカーや見�
 
 ## 実績・写真の更新
 
-`index.html` の `.p-top-works__list` 内にある `article.p-top-works-card` が1案件です。案件名、業種、説明、`dl` 内の「大切にしたこと」を差し替え、記事単位で複製してください。偶数番目の上下のずれはCSS側で自動適用されます。現時点では制作の成果や背景を推測せず、紹介文も準備中と明記しています。
+`index.html` の `.p-top-works__list` 内にある `article.p-top-works-card` が1案件です。案件名、業種、説明、`dl` 内の「大切にしたこと」を差し替え、記事単位で複製してください。偶数番目の上下のずれはCSS側で自動適用されます。参考画像に合わせた改修後も、この実績の配置は維持しています。現時点では制作の成果や背景を推測せず、紹介文も準備中と明記しています。
 
 各 `figure` のプレースホルダーを次のような画像に置き換えます。画像は `images/works/`、STORY写真は `images/story/` などに整理できます。
 
 ```html
 <figure class="p-top-works-card__visual">
-  <img src="images/works/all-hair.webp" alt="ALL HAIRのWebサイト画面"
-       width="1200" height="900" loading="lazy" decoding="async">
+  <img
+    src="images/works/all-hair.webp"
+    alt="ALL HAIRのWebサイト画面"
+    width="1200"
+    height="900"
+    loading="lazy"
+    decoding="async"
+  />
 </figure>
 ```
 

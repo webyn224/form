@@ -1,5 +1,65 @@
 @use "../foundation/mixin" as m;
-.l-header { display: flex; justify-content: space-between; align-items: center; min-height: 108px; padding: 1.5rem var(--page-gutter); gap: 2rem; }
-.l-header__logo { font-family: var(--font-latin); font-size: 2.625rem; font-weight: 500; letter-spacing: -.065em; line-height: 1; white-space: nowrap; span { color: var(--color-accent-ink); } small { font-size: 1rem; font-weight: 400; letter-spacing: -.035em; margin-left: .4rem; } }
-.l-header__nav { display: flex; align-items: center; gap: clamp(1.5rem, 3vw, 3rem); font-size: .75rem; a { position: relative; } a::after { content: ""; height: 1px; position: absolute; bottom: -.3rem; left: 0; width: 100%; background: currentColor; transform: scaleX(0); transform-origin: left; transition: transform .25s; } a:hover::after { transform: scaleX(1); } }
-@include m.small { .l-header { min-height: 84px; gap: 1rem; } .l-header__logo { font-size: 2.2rem; } .l-header__nav { gap: 0; > a { display: none; } } }
+.l-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 86px;
+  padding: 1.5rem clamp(1.5rem, 4.5vw, 5rem);
+  gap: 2rem;
+}
+.l-header__logo {
+  font-family: var(--font-latin);
+  font-size: 1.75rem;
+  font-weight: 400;
+  letter-spacing: -0.065em;
+  line-height: 1;
+  white-space: nowrap;
+  span {
+    color: var(--color-accent-ink);
+  }
+  small {
+    font-size: 0.625rem;
+    font-weight: 400;
+    letter-spacing: -0.035em;
+    margin-left: 0.3rem;
+  }
+}
+.l-header__nav {
+  display: flex;
+  align-items: center;
+  gap: clamp(1.5rem, 3vw, 3rem);
+  font-size: 0.625rem;
+  a {
+    position: relative;
+  }
+  a::after {
+    content: "";
+    height: 1px;
+    position: absolute;
+    bottom: -0.3rem;
+    left: 0;
+    width: 100%;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.25s;
+  }
+  a:hover::after {
+    transform: scaleX(1);
+  }
+}
+@include m.small {
+  .l-header {
+    min-height: 70px;
+    gap: 1rem;
+  }
+  .l-header__logo {
+    font-size: 1.5rem;
+  }
+  .l-header__nav {
+    gap: 0;
+    > a {
+      display: none;
+    }
+  }
+}

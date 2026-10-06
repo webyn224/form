@@ -1,3 +1,81 @@
 @use "../../foundation/mixin" as m;
-.c-section-label { @include m.latin; display: flex; align-items: center; gap: 1.25rem; margin-bottom: 2rem; span { color: var(--color-muted); } }
-.c-section-heading { font-family: var(--font-serif); font-size: clamp(1.7rem, 2.8vw, 2.75rem); line-height: 1.8; letter-spacing: .07em; font-weight: 400; }
+.c-section-label {
+  @include m.latin;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  color: var(--color-accent-ink);
+  span {
+    color: var(--color-muted);
+  }
+  &::before {
+    content: "";
+    width: 4px;
+    height: 10px;
+    border-radius: 100%;
+    background: linear-gradient(
+      var(--color-accent-pink),
+      var(--color-accent-lavender)
+    );
+    transform: rotate(25deg);
+  }
+}
+.c-section-heading {
+  font-family: var(--font-serif);
+  font-size: clamp(1.4rem, 2.1vw, 2rem);
+  line-height: 1.9;
+  letter-spacing: 0.12em;
+  font-weight: 400;
+  position: relative;
+}
+.c-display-word {
+  display: block;
+  font-family: var(--font-latin);
+  font-size: clamp(4.5rem, 8vw, 7.5rem);
+  line-height: 0.75;
+  letter-spacing: -0.06em;
+  font-weight: 200;
+  color: var(--color-display);
+  margin-left: -0.3rem;
+  margin-bottom: -1.25rem;
+  user-select: none;
+  width: max-content;
+  max-width: 100%;
+  svg {
+    display: block;
+    height: 1em;
+    width: 6em;
+    max-width: 100%;
+    overflow: visible;
+  }
+  text {
+    fill: currentColor;
+    font-size: 110px;
+  }
+}
+.c-display-word--on-gradient {
+  color: var(--color-white);
+  opacity: 0.65;
+}
+.c-marker {
+  background: linear-gradient(
+    transparent 72%,
+    var(--color-marker) 72%,
+    var(--color-marker) 90%,
+    transparent 90%
+  );
+}
+@include m.small {
+  .c-section-label {
+    font-size: 0.5625rem;
+  }
+  .c-section-heading {
+    font-size: 1.35rem;
+    letter-spacing: 0.07em;
+  }
+  .c-display-word {
+    font-size: 4.25rem;
+    margin-bottom: -0.6rem;
+  }
+}
