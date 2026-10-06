@@ -62,8 +62,7 @@ function initParticles() {
   function update() {
     frame = 0;
     fields.forEach((field) => {
-      const section =
-        field.closest(".p-top-intro__thoughts") || field.closest("section");
+      const section = field.closest("section");
       const bounds = section.getBoundingClientRect();
       const progress = motion.matches
         ? 0
