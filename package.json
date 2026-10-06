@@ -1,0 +1,17 @@
+{
+  "name": "malt-design-lp",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "sass --no-source-map scss/style.scss css/style.css && node scripts/build-preview.mjs",
+    "watch": "sass --no-source-map --watch scss/style.scss:css/style.css",
+    "serve": "python3 -m http.server 8000 --bind 127.0.0.1",
+    "test": "node tests/smoke.cjs",
+    "build:preview": "node scripts/build-preview.mjs"
+  },
+  "devDependencies": {
+    "playwright-core": "1.56.1",
+    "sass": "1.93.2"
+  }
+}

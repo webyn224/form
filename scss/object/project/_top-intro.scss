@@ -1,0 +1,10 @@
+@use "../../foundation/mixin" as m;
+.p-top-intro { padding-block: var(--space-section); display: grid; grid-template-columns: 1fr 1fr; gap: 8%; border-top: 1px solid var(--color-line); }
+.p-top-intro__heading { align-self: start; position: sticky; top: 5rem; }
+.p-top-intro__content { padding-top: 4.5rem; font-size: .9375rem; }
+.p-top-intro__empathy { color: var(--color-muted); border-left: 1px solid var(--color-line); padding-left: 2rem; p + p { margin-top: 2.25rem; } }
+.p-top-intro__answer { margin-top: 5rem; p + p { margin-top: 1.7rem; } }
+.p-top-intro__quote { font-family: var(--font-serif); font-size: 1.125rem; letter-spacing: .02em; }
+.p-top-intro__closing { padding-top: 1rem; }
+.p-top-intro__particles { position: relative; height: 220px; width: 80%; margin-top: 4rem; --progress: 0; i { position: absolute; top: calc(var(--y) * 1% + var(--progress) * (48 - var(--y)) * 1%); left: calc(var(--x) * 1% + var(--progress) * (50 - var(--x)) * 1%); width: var(--size); aspect-ratio: 1; border-radius: 50%; background: var(--dot); opacity: .6; } span { @include m.latin; position: absolute; bottom: 0; left: 0; color: var(--color-muted); letter-spacing: .04em; } }
+@include m.small { .p-top-intro { grid-template-columns: 1fr; gap: 3rem; } .p-top-intro__heading { position: static; } .p-top-intro__particles { height: 130px; margin-top: 1.5rem; width: 70%; } .p-top-intro__content { padding-top: 0; font-size: .875rem; } .p-top-intro__empathy { padding-left: 1.25rem; } .p-top-intro__quote { font-size: 1rem; } }

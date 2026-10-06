@@ -1,0 +1,3 @@
+@use "sass:math";
+// 固定の px 値を rem に換算するときだけ使用する。
+@function rem($pixels) { @return math.div($pixels, 16) * 1rem; }

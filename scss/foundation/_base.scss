@@ -1,0 +1,11 @@
+html { scroll-behavior: smooth; scroll-padding-top: 6rem; }
+body { background: var(--color-bg); color: var(--color-text); font-family: var(--font-body); font-size: .9375rem; line-height: 2.2; -webkit-font-smoothing: antialiased; }
+::selection { background: var(--color-accent-lavender); }
+:focus-visible { outline: 2px solid var(--color-accent-ink); outline-offset: 6px; }
+[data-fade] { transition: opacity .9s ease, transform .9s ease; }
+[data-fade].is-pending { opacity: 0; transform: translateY(20px); }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  [data-fade] { transition: none; }
+  [data-fade].is-pending { opacity: 1; transform: none; }
+}

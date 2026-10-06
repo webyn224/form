@@ -1,0 +1,3 @@
+@use "../../foundation/mixin" as m;
+.u-only-small { display: none; }
+@include m.small { .u-only-small { display: initial; } }

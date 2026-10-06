@@ -1,0 +1,20 @@
+@use "../../foundation/mixin" as m;
+.p-top-works { padding-block: var(--space-section); }
+.p-top-works__heading { display: flex; justify-content: space-between; align-items: end; gap: 2rem; > p { font-size: .8125rem; } }
+.p-top-works__notice { font-size: .6875rem; color: var(--color-muted); margin-top: 2rem; }
+.p-top-works__list { display: grid; grid-template-columns: 1.18fr 1fr; align-items: start; column-gap: 7%; row-gap: 5rem; margin-top: 2rem; }
+.p-top-works-card { min-width: 0; &:nth-child(even) { margin-top: 9rem; } }
+.p-top-works-card__visual { overflow: hidden; }
+.p-top-works-card__placeholder { aspect-ratio: 1.35; position: relative; display: flex; align-items: center; justify-content: center; flex-direction: column; background: var(--color-surface); overflow: hidden; &::before { content: ""; position: absolute; width: 65%; height: 110%; border: 1px solid color-mix(in srgb, var(--color-bg) 40%, transparent); border-radius: 50%; transform: rotate(25deg); } }
+.p-top-works-card__image-label, .p-top-works-card__image-note { @include m.latin; position: absolute; left: 1.5rem; font-size: .5rem; }
+.p-top-works-card__image-label { top: 1.2rem; }
+.p-top-works-card__image-note { bottom: 1.2rem; }
+.p-top-works-card__image-title { font-family: var(--font-serif); font-size: clamp(2rem, 4vw, 4rem); position: relative; line-height: 1.1; text-align: center; font-weight: 400; em { font-weight: 400; } }
+.p-top-works-card--hair { .p-top-works-card__placeholder { background: var(--color-work-hair-bg); color: var(--color-work-hair-text); } .p-top-works-card__image-title { letter-spacing: .08em; } }
+.p-top-works-card--care { .p-top-works-card__placeholder { background: var(--color-work-care-bg); color: var(--color-work-care-text); aspect-ratio: 1.15; &::before { width: 42%; height: 58%; border-radius: 50% 50% 0 0; transform: none; border-color: color-mix(in srgb, var(--color-work-care-text) 18%, transparent); } } .p-top-works-card__image-title { font-size: clamp(1.5rem, 3vw, 3rem); } }
+.p-top-works-card--company { .p-top-works-card__placeholder { background: var(--color-work-company-bg); color: var(--color-work-company-text); aspect-ratio: 1.55; &::before { border-radius: 0; transform: rotate(-35deg); width: 90%; height: 30%; border-color: color-mix(in srgb, var(--color-work-company-text) 18%, transparent); } } .p-top-works-card__image-title { font-family: var(--font-latin); letter-spacing: -.08em; font-size: 5rem; } }
+.p-top-works-card--doula { .p-top-works-card__placeholder { background: var(--color-work-doula-bg); color: var(--color-work-doula-text); &::before { width: 70%; height: 80%; border-color: color-mix(in srgb, var(--color-work-doula-text) 18%, transparent); } } .p-top-works-card__image-title { font-size: clamp(1.75rem, 3vw, 2.5rem); line-height: 1.7; em { font-style: normal; } } }
+.p-top-works-card__meta { margin-top: 1.5rem; span { font-size: .625rem; color: var(--color-muted); letter-spacing: .05em; } h3 { margin-top: .4rem; font-size: 1.3rem; font-weight: 400; font-family: var(--font-latin), var(--font-body); letter-spacing: .015em; } }
+.p-top-works-card__description { font-size: .75rem; color: var(--color-muted); margin-top: .8rem; }
+.p-top-works-card__detail { display: grid; grid-template-columns: auto 1fr; gap: 1rem; margin-top: 1rem; padding-top: .8rem; border-top: 1px solid var(--color-line); font-size: .6875rem; dt { color: var(--color-muted); } }
+@include m.small { .p-top-works__heading { display: block; > p { margin-top: 1.5rem; } } .p-top-works__list { grid-template-columns: 1fr; row-gap: 3rem; } .p-top-works-card:nth-child(even) { margin-top: 0; margin-left: 1.5rem; } .p-top-works-card:nth-child(odd) { margin-right: 1.5rem; } .p-top-works-card__detail { gap: .5rem; } }
